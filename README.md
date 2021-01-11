@@ -7,7 +7,7 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manife
 
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 ```
-> Source: https://metallb.universe.tf/installation/
+> Source: https://metallb.universe.tf/installation/#installation-by-manifest
 
 Setup IP range. Giving only 1 IP which is of the node IP
 ```
