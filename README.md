@@ -11,7 +11,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 
 Setup IP range. Giving only 1 IP which is of the node IP
 ```
-kubectl create -f - <<EOF
+kubectl create -f - << EOF
 apiVersion: v1
 kind: ConfigMap
 metadata:
