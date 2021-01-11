@@ -7,8 +7,9 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manife
 
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 ```
+> Source: https://metallb.universe.tf/installation/
 
-Setup IP range
+Setup IP range. Giving only 1 IP which is of the node IP
 ```
 kubectl create -f - <<EOF
 apiVersion: v1
@@ -25,3 +26,6 @@ data:
       - $(kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }')/32
 EOF
 ```
+
+CIDR to IP Range:
+https://www.ipaddressguide.com/cidr
