@@ -10,13 +10,6 @@ helm upgrade -i metallb metallb/metallb \
   --namespace metallb-system
 ```
 
-Install Metal LB:
-```bash
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.11.0/manifests/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.11.0/manifests/metallb.yaml
-```
-> Source: https://metallb.universe.tf/installation/#installation-by-manifest
-
 Setup IP range. Giving only 1 IP which is of the node IP
 ```bash
 kubectl create -f - << EOF
@@ -34,6 +27,15 @@ data:
       - $(kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }')/32
 EOF
 ```
+
+---
+
+Install Metal LB:
+```bash
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.11.0/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.11.0/manifests/metallb.yaml
+```
+> Source: https://metallb.universe.tf/installation/#installation-by-manifest
 
 CIDR to IP Range:
 https://www.ipaddressguide.com/cidr
