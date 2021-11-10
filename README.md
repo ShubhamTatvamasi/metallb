@@ -1,5 +1,12 @@
 # metallb
 
+Add helm repo:
+```bash
+helm repo add metallb https://metallb.github.io/metallb
+
+helm install metallb metallb/metallb
+```
+
 Install Metal LB:
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.11.0/manifests/namespace.yaml
