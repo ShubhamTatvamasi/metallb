@@ -4,7 +4,9 @@ Add helm repo:
 ```bash
 helm repo add metallb https://metallb.github.io/metallb
 
-helm install metallb metallb/metallb
+helm upgrade -i metallb metallb/metallb \
+  --create-namespace \
+  --namespace metallb-system
 ```
 
 Install Metal LB:
