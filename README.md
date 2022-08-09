@@ -10,6 +10,23 @@ helm upgrade -i metallb metallb/metallb \
   --namespace metallb-system
 ```
 
+Create IP Pool Custome Resource:
+```bash
+kubectl create -f - << EOF
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  namespace: metallb-system
+  name: ip-pool
+spec:
+  addresses:
+  - $(kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }')/32
+EOF
+```
+
+
+### OLD
+
 Setup IP range. Giving only 1 IP which is of the node IP
 ```bash
 kubectl create -f - << EOF
