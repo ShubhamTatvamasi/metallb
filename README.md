@@ -10,7 +10,7 @@ helm upgrade -i metallb metallb/metallb \
   --namespace metallb-system
 ```
 
-Create IP Pool Custome Resource:
+Create IP Pool Custom Resource:
 ```bash
 kubectl create -f - << EOF
 apiVersion: metallb.io/v1beta1
