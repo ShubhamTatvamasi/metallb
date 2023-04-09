@@ -23,7 +23,7 @@ spec:
   - $(kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type=="ExternalIP")].address }')/32
 EOF
 ```
-
+> Use `InternalIP` for private network.
 
 ### OLD
 
