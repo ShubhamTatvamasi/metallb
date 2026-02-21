@@ -7,7 +7,8 @@ helm repo update
 
 helm upgrade -i metallb metallb/metallb \
   --create-namespace \
-  --namespace metallb-system
+  --namespace metallb-system \
+  --set speaker.enabled=false
 ```
 
 Create IP Pool Custom Resource:
