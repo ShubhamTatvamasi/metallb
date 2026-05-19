@@ -1,5 +1,7 @@
 # metallb
 
+https://artifacthub.io/packages/helm/metallb/metallb
+
 Add helm repo:
 ```bash
 helm repo add metallb https://metallb.github.io/metallb
