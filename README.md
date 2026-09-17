@@ -5,8 +5,10 @@ https://artifacthub.io/packages/helm/metallb/metallb
 Add helm repo:
 ```bash
 helm repo add metallb https://metallb.github.io/metallb
-helm repo update
+```
 
+Install metallb:
+```
 helm upgrade -i metallb metallb/metallb \
   --version 0.16.1 \
   --create-namespace \
